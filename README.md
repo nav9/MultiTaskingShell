@@ -29,7 +29,7 @@ Multi-tasking Shell on Unix
 
 Project specification :
 -----------------------
-The shell supports the following features: 
+The shell was to support the following features: 
 
 * Internal and External commands 
 * Command Line Interface 
