@@ -1,0 +1,186 @@
+                                                                                                       
+Project Title: 
+--------------
+Multi-tasking Shell on Unix
+
+Group members:
+--------------
+Jyoti Gupta                    d0813013
+Raghvendra Bahadur Sahu        d0813028	
+Pradeep kumar                  d0813024  
+Navin K Ipe                    d0813021
+
+Project specification :
+-----------------------
+The shell supports the following features: 
+
+* Internal and External commands 
+* Command Line Interface 
+* Back grounding 
+* Redirection 
+* Pipes 
+* Job control 
+* Listing and timing of jobs 
+* Shell script programming 
+* Wild-cards 
+* Signal handling 
+
+Input/Output Specification: 
+--------------------------- 
+
+Input:  suspend [-f] 
+Output: Suspend the execution of this shell until it receives a SIGCONT signal. 
+
+Input:  kill [process id] 
+Output: Terminates the process specified by process id. 
+ 
+Input: times 
+Output: Print the accumulated user and system times for the shell and for processes run from the shell 
+
+Input: ulimit 
+Output: Provides control over the resources available to the shell and to processes started by it, on systems that allow 
+such control. 
+
+Input: wait 
+Output: Wait for each specified process and return its termination status. 
+
+Input: alias [NAME[=VALUE] ...] 
+Output: Create a name for another command or long command string. 
+
+Input: trap [[arg] sigspec ...] 
+Output: The command  arg is to be read and executed when the shell receives signal(s) sigspec. 
+
+Input: cd [dir] 
+Output: Change the current directory to dir 
+
+Input: dirs 
+Output: displays the list  of  currently remembered directories. 
+
+Input: echo [arg ...] 
+Output: Output the args, separated by spaces, followed by a newline. 
+
+Input: pwd 
+Output: Print the absolute pathname of the current working directory. 
+
+Input: jobs [ jobspec ... ] 
+Output: If jobspec is given, output is restricted to information about that job. 
+
+
+Interaction Specification: 
+-------------------------- 
+Piping with redirection (N no of pipes and redirections will be supported) 
+
+Signal Handling: 
+---------------- 
+Signal name: SIGEXIT 
+Keyboard Shortcut: Ctrl-d 
+Function: Exits the shell 
+
+Signal name: SIGINT 
+Keyboard Shortcut: Ctrl-c 
+Function: Kills foreground process 
+
+Signal name: SIGQUIT 
+Keyboard Shortcut: Ctrl-\ 
+Function: Causes the process to terminate 
+
+Signal name: SIGTSTP 
+Keyboard Shortcut: Ctrl-z 
+Function: causes the process to suspend execution. 
+
+Wild cards to be supported: 
+-------------------------- 
+* An asterisk matches any number of characters in a filename. 
+? The question mark matches any single character. 
+[ ] Brackets enclose a set of characters, any one of which may match a single character at that position. 
+- A hyphen used within [ ] denotes a range of characters. 
+
+
+Summary of what was actually implemented:
+----------------------------------------
+We have implemented the following features in the shell.
+
+1. Command Line Interface
+2. External commands
+3. Internal commands (echo, pwd, jobs)
+4. Single Pipe (Supports only external Commands)
+5. Back grounding
+6. Signal Handling (ctrl-c, ctrl-z, ctrl-\ )
+7. Process control
+
+
+Differences between the original specification and the final software, and reasons for it :
+-------------------------------------------------------------------------------------------
+Tasks we couldn't implement:
+
+ 1. Shell script programming
+ 2. Wild cards
+ 3. Job control
+ 4. Multiple pipes
+ 5. Redirection
+ 6. Few Internal commands
+
+ Reason:
+ Time consumption on learning concepts.
+
+
+Did you face any major problems? What did you do to try and overcome them?
+--------------------------------------------------------------------------
+1. Infinite forking problems when working with signal handling.
+   We found the bug in the execvp command error handling section where the child had to be exited.
+
+2. Segmentation faults
+   Appropriately parsing the user input string solved the problem.
+
+
+What did you learn from the project? 
+------------------------------------
+1. Firstly, we've realised the importance of dividing tasks according to team members capabilities.
+2. We have a better understanding of concepts like forking to create child processes, overwriting the child with an exec system call, handling errors and signals, and a basic understanding of how a Unix shell works.
+
+Given a chance to do this project again, we would like to implement multiple pipes, redirection, support the cd command to allow the user to navigate through directories and supporting job control using structures.
+
+Comments:
+---------
+Learning internal concepts of the working of the Unix shell has been as informative as it has been challenging to understand concepts, exchange information between team members and to create and integrate code into one working software.
+We are glad to have chosen this project and are a little dejected that time did not permit us to learn more about the working of the Unix shell.
+
+Acknowledgements:
+-----------------
+We express our humble gratitude to our teachers Mr.Rajiv Ranjan, Mr.Mayank and Mr.Abhijit have generously given their time and dedicated effort to assist and guide us in our project.
+
+
+Proforma for Declaration of Originality and Division of Work
+-------------------------------------------------------------
+
+Group Id: MTS-2
+Project Title:Multi-tasking Shell on Unix
+
+Tick whichever is applicable:
+
+[X] We hereby declare that the code submitted by us is our own effort. We
+have not used code from any other source.
+                                                                (OR)
+
+[Y] We declare that we have used code from the following sources. The
+    borrowed code constitutes approximately 0.5% of our total code. 
+    (Provide details here):
+    1. The initializeShell() function contains a few lines regarding shell initialization which were taken from the info pages of Unix.
+    2. The intToAscii() function (to convert an integer to a string) was obtained from the internet.
+
+    By signing this declaration, we submit that we have read, and understood, the terms and conditions of the Code of Conduct for Projects as specified in the  handbook, and agree to abide by them. We further declare that we all agree that the percentage contribution of work among us for this project was as follows.
+
+         +----+--------------+---------------+-------------------+------------+
+         No.|  Login-id    |   Name        | Contribution(%)   | Signature
+         +----+--------------+---------------+-------------------+------------+
+
+         1.   d0813021	Navin Ipe		 25%	
+         2.   d0813013  Jyoti Gupta		 25%
+         3.   d0813024  Pradeep Kumar		 25%
+         4.   d0813028  Raghvendra Bahadur Sahu  25%
+        
+         +--------------------------------------------------------------------+
+
+         [This must be signed by all group members, and submitted as a separate sheet
+         with the final report]
+
